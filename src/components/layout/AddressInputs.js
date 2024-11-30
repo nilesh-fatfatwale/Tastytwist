@@ -1,42 +1,48 @@
-export default function AddressInputs({addressProps,setAddressProp,disabled=false}) {
-  const {phone, streetAddress, postalCode, city, country} = addressProps;
+import React from "react";
+
+export default function AddressInputs({ addressProps, setAddressProp }) {
   return (
-    <>
-      <label>Phone</label>
-      <input
-        disabled={disabled}
-        type="tel" placeholder="Phone number"
-        value={phone || ''} onChange={ev => setAddressProp('phone', ev.target.value)} />
-      <label>Street address</label>
-      <input
-        disabled={disabled}
-        type="text" placeholder="Street address"
-        value={streetAddress || ''} onChange={ev => setAddressProp('streetAddress', ev.target.value)}
-      />
-      <div className="grid grid-cols-2 gap-2">
-        <div>
-          <label>Postal code</label>
-          <input
-            disabled={disabled}
-            type="text" placeholder="Postal code"
-            value={postalCode || ''} onChange={ev => setAddressProp('postalCode', ev.target.value)}
-          />
-        </div>
-        <div>
-          <label>City</label>
-          <input
-            disabled={disabled}
-            type="text" placeholder="City"
-            value={city || ''} onChange={ev => setAddressProp('city', ev.target.value)}
-          />
-        </div>
-      </div>
-      <label>Country</label>
-      <input
-        disabled={disabled}
-        type="text" placeholder="Country"
-        value={country || ''} onChange={ev => setAddressProp('country', ev.target.value)}
-      />
-    </>
+    <div>
+      <label>
+        Phone:
+        <input
+          type="text"
+          value={addressProps.phone || ""}
+          onChange={(e) => setAddressProp("phone", e.target.value)}
+        />
+      </label>
+      <label>
+        Street Address:
+        <input
+          type="text"
+          value={addressProps.streetAddress || ""}
+          onChange={(e) => setAddressProp("streetAddress", e.target.value)}
+        />
+      </label>
+      <label>
+        City:
+        <input
+          type="text"
+          value={addressProps.city || ""}
+          onChange={(e) => setAddressProp("city", e.target.value)}
+        />
+      </label>
+      <label>
+        Postal Code:
+        <input
+          type="text"
+          value={addressProps.postalCode || ""}
+          onChange={(e) => setAddressProp("postalCode", e.target.value)}
+        />
+      </label>
+      <label>
+        Country:
+        <input
+          type="text"
+          value={addressProps.country || ""}
+          onChange={(e) => setAddressProp("country", e.target.value)}
+        />
+      </label>
+    </div>
   );
 }
